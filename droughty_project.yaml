@@ -1,0 +1,35 @@
+profile: ra-development
+
+dimensional_inference: enabled
+
+field_description_path: warehouse_docs
+field_description_file_name: field_descriptions.md
+
+test_schemas:
+
+  - lewis_analytics_dev_staging
+  - lewis_analytics_dev_integration
+  - lewis_analytics_dev
+
+dbml_schemas:
+  - lewis_analytics_dev_staging
+  - lewis_analytics_dev_integration
+  - lewis_analytics_dev
+
+entity_resolution:
+  read_schema:
+    lewis_analytics_dev
+  write_schema:
+    lewis_analytics_dev_resolution
+  read_table_names:
+    wh_delivery__harvest_clients_dim:
+      - harvest_client_pk
+      - harvest_client_name
+    wh_delivery__jira_projects_fact:
+      - jira_project_pk
+      - jira_project_name
+  write_column_names:
+    - client_sk
+    - client_name
+  write_table_name:
+    - clients_dim

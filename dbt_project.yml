@@ -1,0 +1,41 @@
+
+name: 'ra_development'
+version: '0.0.1'
+require-dbt-version: ">=1.0.3"
+config-version: 2
+
+profile: ra_development
+
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["data"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+docs-paths: ["warehouse_docs"]
+
+target-path: "target"
+clean-targets:
+    - "target"
+    - "dbt_packages"
+
+vars:
+    jira_database: ra-development
+    jira_schema: fivetran_jira 
+
+models:
+    +persist_docs:
+        relation: true
+        columns: true
+    ra_development:
+        staging:
+            +materialized: view
+            +schema: staging
+            +required_docs: true
+        integration:
+            +materialized: view
+            +schema: integration
+        warehouse:
+            +materialized: table
+            +required_docs: true
+            +required_tests: {"unique": 1, "not_null": 1}
