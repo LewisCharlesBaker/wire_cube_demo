@@ -395,19 +395,19 @@ pivot_issue_history as (
 
       
 
-      position_in_hierarchy_ as jira_issue_field_history_position_in_hierarchy_,
-
-      
-
       domain as jira_issue_field_history_domain,
 
       
 
-      epic_color as jira_issue_field_history_epic_color,
+      position_in_hierarchy_ as jira_issue_field_history_position_in_hierarchy_,
 
       
 
       epic_status as jira_issue_field_history_epic_status,
+
+      
+
+      epic_color as jira_issue_field_history_epic_color,
 
       
 
@@ -983,25 +983,25 @@ pivot_issue_history as (
 
       
 
-      'position_in_hierarchy_'
-
-      ,
-
-      
-
       'domain'
 
       ,
 
       
 
-      'epic_color'
+      'position_in_hierarchy_'
 
       ,
 
       
 
       'epic_status'
+
+      ,
+
+      
+
+      'epic_color'
 
       ,
 
